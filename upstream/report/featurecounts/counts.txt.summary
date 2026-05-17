@@ -1,0 +1,15 @@
+Status	./report/hisat2/bamsort/SRR30668268_sort.bam	./report/hisat2/bamsort/SRR30668269_sort.bam	./report/hisat2/bamsort/SRR30668270_sort.bam	./report/hisat2/bamsort/SRR30668271_sort.bam	./report/hisat2/bamsort/SRR30668272_sort.bam	./report/hisat2/bamsort/SRR30668273_sort.bam
+Assigned	77742790	81936809	80678791	72793486	80603146	72511730
+Unassigned_Unmapped	830782	924412	833084	758473	889812	750769
+Unassigned_Read_Type	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0
+Unassigned_MultiMapping	0	0	0	0	0	0
+Unassigned_Secondary	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0
+Unassigned_NoFeatures	11134158	8237220	8750456	8754582	9638104	7649023
+Unassigned_Overlapping_Length	0	0	0	0	0	0
+Unassigned_Ambiguity	0	0	0	0	0	0

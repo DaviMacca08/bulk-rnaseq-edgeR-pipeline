@@ -1,0 +1,65 @@
+#SRR30668268
+
+TrimmomaticPE: Started with arguments:
+ -threads 4 ./fastq/SRR30668268_1.fastq.gz ./fastq/SRR30668268_2.fastq.gz ./report/trimmomatic/clean/SRR30668268_1_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668268_1_unpa.fastq.gz ./report/trimmomatic/clean/SRR30668268_2_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668268_2_unpa.fastq.gz ILLUMINACLIP:/Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:20 LEADING:3 TRAILING:3 MINLEN:50
+ILLUMINACLIP: Using adapter file from user-specified absolute path: /Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 44525733 Both Surviving: 41140807 (92.40%) Forward Only Surviving: 1923809 (4.32%) Reverse Only Surviving: 936873 (2.10%) Dropped: 524244 (1.18%)
+TrimmomaticPE: Completed successfully
+
+#SRR30668269
+
+TrimmomaticPE: Started with arguments:
+ -threads 4 ./fastq/SRR30668269_1.fastq.gz ./fastq/SRR30668269_2.fastq.gz ./report/trimmomatic/clean/SRR30668269_1_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668269_1_unpa.fastq.gz ./report/trimmomatic/clean/SRR30668269_2_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668269_2_unpa.fastq.gz ILLUMINACLIP:/Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:20 LEADING:3 TRAILING:3 MINLEN:50
+ILLUMINACLIP: Using adapter file from user-specified absolute path: /Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 45782206 Both Surviving: 42312863 (92.42%) Forward Only Surviving: 2080302 (4.54%) Reverse Only Surviving: 889374 (1.94%) Dropped: 499667 (1.09%)
+TrimmomaticPE: Completed successfully
+
+#SRR30668270
+
+TrimmomaticPE: Started with arguments:
+ -threads 4 ./fastq/SRR30668270_1.fastq.gz ./fastq/SRR30668270_2.fastq.gz ./report/trimmomatic/clean/SRR30668270_1_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668270_1_unpa.fastq.gz ./report/trimmomatic/clean/SRR30668270_2_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668270_2_unpa.fastq.gz ILLUMINACLIP:/Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:20 LEADING:3 TRAILING:3 MINLEN:50
+ILLUMINACLIP: Using adapter file from user-specified absolute path: /Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 45102109 Both Surviving: 41889175 (92.88%) Forward Only Surviving: 1811329 (4.02%) Reverse Only Surviving: 986957 (2.19%) Dropped: 414648 (0.92%)
+TrimmomaticPE: Completed successfully
+
+#SRR30668271
+
+TrimmomaticPE: Started with arguments:
+ -threads 4 ./fastq/SRR30668271_1.fastq.gz ./fastq/SRR30668271_2.fastq.gz ./report/trimmomatic/clean/SRR30668271_1_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668271_1_unpa.fastq.gz ./report/trimmomatic/clean/SRR30668271_2_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668271_2_unpa.fastq.gz ILLUMINACLIP:/Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:20 LEADING:3 TRAILING:3 MINLEN:50
+ILLUMINACLIP: Using adapter file from user-specified absolute path: /Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 41623217 Both Surviving: 38321744 (92.07%) Forward Only Surviving: 1948579 (4.68%) Reverse Only Surviving: 822375 (1.98%) Dropped: 530519 (1.27%)
+TrimmomaticPE: Completed successfully
+
+#SRR30668272
+
+TrimmomaticPE: Started with arguments:
+ -threads 4 ./fastq/SRR30668272_1.fastq.gz ./fastq/SRR30668272_2.fastq.gz ./report/trimmomatic/clean/SRR30668272_1_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668272_1_unpa.fastq.gz ./report/trimmomatic/clean/SRR30668272_2_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668272_2_unpa.fastq.gz ILLUMINACLIP:/Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:20 LEADING:3 TRAILING:3 MINLEN:50
+ILLUMINACLIP: Using adapter file from user-specified absolute path: /Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 45808821 Both Surviving: 42204375 (92.13%) Forward Only Surviving: 2124212 (4.64%) Reverse Only Surviving: 884587 (1.93%) Dropped: 595647 (1.30%)
+TrimmomaticPE: Completed successfully
+
+#SRR30668273
+
+TrimmomaticPE: Started with arguments:
+ -threads 4 ./fastq/SRR30668273_1.fastq.gz ./fastq/SRR30668273_2.fastq.gz ./report/trimmomatic/clean/SRR30668273_1_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668273_1_unpa.fastq.gz ./report/trimmomatic/clean/SRR30668273_2_trim.fastq.gz ./report/trimmomatic/unpaired/SRR30668273_2_unpa.fastq.gz ILLUMINACLIP:/Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:20 LEADING:3 TRAILING:3 MINLEN:50
+ILLUMINACLIP: Using adapter file from user-specified absolute path: /Users/davidemaccarrone/miniconda3/envs/rnaseq/share/trimmomatic/adapters/TruSeq3-PE.fa
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 40536012 Both Surviving: 37656880 (92.90%) Forward Only Surviving: 1565424 (3.86%) Reverse Only Surviving: 902674 (2.23%) Dropped: 411034 (1.01%)
+TrimmomaticPE: Completed successfully

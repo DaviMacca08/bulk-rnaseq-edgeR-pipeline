@@ -1,0 +1,432 @@
+Bulk RNA-seq Differential Expression and Pathway Analysis Report
+================
+Bioinformatics Analysis Service
+2026-05-17
+
+# 1. Executive Summary
+
+This report presents a bulk RNA-seq analysis of MCF-7 breast cancer
+cells cocultured with adipose-derived stem cells (ADSCs) to investigate
+transcriptional changes induced by tumor microenvironment interactions.
+
+The analysis identifies key molecular programs involving extracellular
+matrix remodeling, metabolic reprogramming, hypoxia response, and
+activation of pro-growth signaling pathways.
+
+Survival-based validation further supports the clinical relevance of
+selected genes, with associations observed in both disease-free survival
+(GEO: GSE2034) and overall survival (TCGA-BRCA) cohorts.
+
+Overall, the results highlight potential prognostic biomarkers and
+provide insights into tumor–stroma interactions driving breast cancer
+progression.
+
+------------------------------------------------------------------------
+
+# 2. Experimental Design
+
+The dataset consists of 6 RNA-seq samples:
+
+| Condition | Replicates | Description                       |
+|-----------|------------|-----------------------------------|
+| Control   | 3          | MCF-7 cells cultured alone        |
+| ADSC      | 3          | MCF-7 cells cocultured with ADSCs |
+
+No batch effects were reported unless otherwise specified.
+
+------------------------------------------------------------------------
+
+# 3. Data Processing Workflow
+
+RNA-seq preprocessing was performed using a standard pipeline:
+
+- Quality control: FastQC / MultiQC
+- Adapter trimming: Trimmomatic
+- Alignment: HISAT2
+- Gene quantification: featureCounts
+
+Raw counts were used for downstream statistical analysis.
+
+Analysis was performed following established Bioconductor workflows for
+bulk RNA-seq differential expression analysis, ensuring reproducibility,
+analytical transparency, and adherence to widely accepted computational
+standards.
+
+## 3.1 Statistical framework
+
+Differential expression analysis was performed using edgeR, which models
+count data using a negative binomial distribution. Library normalization
+was performed using the TMM method to account for compositional
+differences between samples.
+
+Statistical significance was defined using the false discovery rate
+(FDR) framework to control for multiple hypothesis testing.
+
+------------------------------------------------------------------------
+
+# 4. Exploratory Data Analysis (EDA)
+
+## 4.1 Principal Component Analysis (PCA)
+
+PCA was used to assess global transcriptional differences between
+conditions.
+
+<img src="../downstream/plots/ExactTest/EDA/04-PCA_log2CPM.png" alt="" width="1200" style="display: block; margin: auto;" />
+
+PCA revealed a clear separation between control and ADSC-treated
+samples, indicating strong global transcriptional reprogramming induced
+by tumor microenvironment interactions.
+
+## 4.2 Sample Clustering
+
+Sample-distance heatmap was performed to assess sample similarity.
+
+<img src="../downstream/plots/ExactTest/EDA/05-sample_distance_heatmap.png" alt="" width="1200" style="display: block; margin: auto;" />
+
+------------------------------------------------------------------------
+
+# 5. Differential Expression Analysis (DEGs)
+
+Differential expression analysis was performed using edgeR with TMM
+normalization.
+
+**Criteria for significance:**
+
+    ## - FDR < 0.05
+
+    ## - |log2FC| > 1
+
+## 5.1 Summary of DEGs
+
+    ## Total DEGs identified: 1013
+
+    ## Upregulated genes: 887
+
+    ## Downregulated genes: 126
+
+## 5.2 Volcano Plot of DEGs
+
+<img src="../downstream/plots/ExactTest/Differential_Expression/09-volcano_plot_DEGs.png" alt="" width="1200" style="display: block; margin: auto;" />
+
+## 5.3 Heatmap of DEGs
+
+<img src="../downstream/plots/ExactTest/Differential_Expression/10-DEGs_heatmap.png" alt="" width="1200" style="display: block; margin: auto;" />
+
+------------------------------------------------------------------------
+
+# 6. Functional Enrichment Analysis (ORA)
+
+Functional enrichment analysis was performed using GO, KEGG, Reactome,
+and GSEA.
+
+## 6.1 Gene Ontology terms
+
+### **Biological Process**
+
+- Response to hypoxia
+- Extracellular matrix organization
+- Cellular response to oxygen levels
+
+### **Molecular Functions**
+
+- Extracellular matrix structural constituent
+- Monosaccharide binding
+- Oxidoreductase activity
+
+### **Cellular Component**
+
+- Vesicle lumen
+- Basement membrane
+- Extracellular matrix
+
+<img src="../downstream/plots/ORA/01-GO_enrichment.png" alt="" width="12000" style="display: block; margin: auto;" />
+
+## Biological interpretation (GO enrichment)
+
+The GO enrichment analysis highlights a coordinated transcriptional
+response involving hypoxia signaling, extracellular matrix remodeling,
+and metabolic adaptation. The enrichment of response to hypoxia and
+cellular response to oxygen levels suggests activation of oxygen-sensing
+pathways consistent with tumor microenvironment stress conditions.
+
+In parallel, extracellular matrix organization and related structural
+components indicate active remodeling of the tumor microenvironment, a
+key feature associated with increased cell adhesion, migration, and
+stromal interaction in breast cancer progression.
+
+At the molecular level, enrichment of extracellular matrix structural
+components and oxidoreductase activity reflects extracellular remodeling
+processes coupled with metabolic and redox adaptation. Finally, the
+presence of extracellular and vesicle-associated compartments supports
+enhanced intercellular communication within the tumor microenvironment.
+
+Overall, these results are consistent with early pro-tumorigenic
+transcriptional reprogramming driven by stromal interaction, as
+described in ADSC-cocultured MCF-7 models.
+
+## 6.2 KEGG Pathways
+
+Significant pathways include:
+
+- HIF-1 signaling pathway
+- Glycolysis / gluconeogenesis
+- Complement and coagulation cascades
+
+<img src="../downstream/plots/ORA/02-KEGG_enrichment.png" alt="" width="3000" style="display: block; margin: auto;" />
+
+## 6.3 Reactome Pathways
+
+- Interleukin-4 and Interleukin-13 signaling
+- Fibronectin matrix formation
+- Assembly of collagen fibrils and other multimeric structures
+
+<img src="../downstream/plots/ORA/03-Reactome_enrichment.png" alt="" width="4200" style="display: block; margin: auto;" />
+
+## Biological interpretation (KEGG and Reactome pathway)
+
+The KEGG and Reactome enrichment analyses consistently highlight major
+biological processes associated with tumor microenvironment remodeling
+and metabolic adaptation. The enrichment of the HIF-1 signaling pathway
+together with glycolysis/gluconeogenesis suggests a metabolic shift
+toward hypoxia-driven glycolytic reprogramming, a well-established
+feature of early tumor progression and cellular adaptation to low oxygen
+conditions.
+
+In parallel, pathways such as ECM-receptor interaction, fibronectin
+matrix formation, and collagen organization indicate strong
+extracellular matrix remodeling and reorganization of cell–matrix
+interactions, supporting increased cell adhesion, migration, and stromal
+communication.
+
+Additionally, the activation of immune-related pathways, including
+complement and coagulation cascades and interleukin-4/13 signaling,
+suggests a pro-inflammatory microenvironment potentially driven by
+stromal–tumor crosstalk.
+
+Overall, these pathways converge on a biological program characterized
+by hypoxia adaptation, metabolic reprogramming, and extracellular matrix
+remodeling, consistent with ADSC-induced pro-tumorigenic transcriptional
+changes in MCF-7 cells.
+
+------------------------------------------------------------------------
+
+# 7.Gene Set Enrichment Analysis (GSEA)
+
+Gene Set Enrichment Analysis (GSEA) was performed to evaluate
+coordinated expression changes across biologically relevant pathways
+without applying an arbitrary differential expression threshold. The
+analysis highlighted significant enrichment of pathways associated with
+hypoxia signaling, glycolytic metabolism, and oxidative phosphorylation,
+supporting widespread metabolic reprogramming in ADSC-treated MCF-7
+cells.
+
+<img src="../downstream/plots/GSEA/06v2-GeneInvolved_sort.png" alt="" width="2212" style="display: block; margin: auto;" />
+
+## Biological interpretation (GSEA)
+
+Gene Set Enrichment Analysis (GSEA) further supported the presence of
+coordinated pathway-level transcriptional reprogramming associated with
+tumor microenvironment interactions.
+
+Significant enrichment of HIF-1 signaling, glycolysis/gluconeogenesis,
+and oxidative phosphorylation pathways indicates extensive metabolic
+adaptation and energetic rewiring in ADSC-treated MCF-7 cells. These
+findings suggest activation of both hypoxia-responsive programs and
+altered cellular energy metabolism, consistent with stress adaptation
+and increased tumor cell plasticity.
+
+Several highly contributing genes within these pathways are known to
+regulate glucose metabolism, mitochondrial activity, and cellular
+survival under hypoxic conditions, supporting the emergence of a
+metabolically flexible and potentially more aggressive phenotype.
+
+Together, the GSEA results complement the ORA findings by demonstrating
+that ADSC-induced transcriptional changes occur not only at the level of
+individual differentially expressed genes, but also as coordinated
+activation of biologically interconnected signaling and metabolic
+programs.
+
+------------------------------------------------------------------------
+
+# 8. Network Analysis
+
+Protein-protein interaction (PPI) analysis was performed using STRING
+database.
+
+Hub genes were identified using network topology analysis (cytoHubba MCC
+method)
+
+<img src="../downstream/plots/PPI/Hub_genes.png" alt="" width="1837" style="display: block; margin: auto;" />
+
+------------------------------------------------------------------------
+
+# 9. Clinical Validation
+
+To evaluate the clinical relevance of the identified hub genes,
+survival-based analyses were performed using independent breast cancer
+cohorts.
+
+Disease-free survival analysis was conducted using the GEO dataset
+GSE2034 to assess the association between hub gene expression and
+patient relapse. Several candidate genes showed significant associations
+with disease recurrence, suggesting potential relevance for early
+disease progression.
+
+Overall survival analysis was performed using TCGA-BRCA clinical and
+transcriptomic data. Kaplan–Meier survival modeling and Cox proportional
+hazards regression were used to evaluate prognostic associations.
+
+Results indicate that specific hub genes identified from network
+analysis are associated with patient survival outcomes, supporting their
+potential role as prognostic biomarkers in breast cancer.
+
+## 9.1 Hub Gene Expression Stratification by Estrogen Receptor (ER) Status in Breast Cancer Cohorts
+
+<img src="../downstream/plots/Disease-Free_Survival/03-HubGenes_ER_status.png" alt="" width="3600" style="display: block; margin: auto;" />
+
+## 9.2 Overall Survival Analysis of PGK1 Expression in Breast Cancer (Kaplan–Meier Curve)
+
+<img src="../downstream/plots/Overall_Survival/04-KaplanMeier_PGK1.png" alt="" width="1500" style="display: block; margin: auto;" />
+
+------------------------------------------------------------------------
+
+# 10. Integrated Biological Interpretation
+
+The transcriptional profile of ADSC-treated MCF-7 cells reveals
+coordinated changes across extracellular matrix organization, metabolic
+reprogramming, hypoxia response, and pro-growth signaling pathways.
+
+These alterations suggest a tumor microenvironment-driven shift toward
+increased cellular plasticity, enhanced migratory potential, and
+metabolic adaptation under stress conditions, consistent with early
+mechanisms of breast cancer progression.
+
+Importantly, clinical validation supports the translational relevance of
+these findings. Disease-free survival analysis in an independent GEO
+cohort (GSE2034) indicates that key hub genes associated with
+extracellular matrix remodeling and metabolic adaptation are linked to
+increased risk of disease recurrence, while overall survival analysis in
+TCGA-BRCA shows that candidate genes such as PGK1 are associated with
+poorer patient prognosis.
+
+Overall, ADSC coculture induces a pro-tumorigenic transcriptional
+program in MCF-7 cells with both mechanistic and clinically relevant
+implications.
+
+------------------------------------------------------------------------
+
+# 11. Conclusions
+
+1.  ADSC coculture induces strong transcriptional reprogramming in MCF-7
+    cells
+2.  ECM remodeling and hypoxia response are key biological features
+3.  Metabolic and inflammatory pathways are significantly altered
+4.  Results are consistent with a pro-tumorigenic tumor microenvironment
+    effect
+5.  Clinical validation supports the translational relevance of the
+    findings, with disease-free and overall survival analyses indicating
+    prognostic associations for key hub genes
+
+------------------------------------------------------------------------
+
+# 12. Reproducibility
+
+- R version: v.4.5.1
+- Main Packages: edgeR, clusterProfiler, ReactomePA, fgsea, WGCNA,
+  survival, survminer
+- Session information available upon request
+- Recommended: use renv for environment reconstruction
+
+------------------------------------------------------------------------
+
+# 13. Study limitations and considerations
+
+This analysis is based on a limited sample size (n = 3 per group), which
+is common in RNA-seq experimental designs but may limit statistical
+power for detecting low-effect genes.
+
+Differential expression analysis was performed using edgeR, which
+assumes negative binomial distribution and is robust for small sample
+sizes, but results should be interpreted in the context of biological
+variability.
+
+No batch effects were detected or reported; however, batch correction
+methods (e.g., surrogate variable analysis) may be required in more
+complex experimental designs.
+
+Functional enrichment results depend on existing pathway annotations and
+should be interpreted as hypothesis-generating rather than definitive
+biological conclusions
+
+Survival analyses (GEO disease-free survival and TCGA overall survival)
+are based on retrospective cohorts and may be influenced by clinical
+confounders and cohort heterogeneity; therefore, prognostic associations
+should be interpreted as exploratory and require independent validation.
+
+------------------------------------------------------------------------
+
+# 14. Deliverables (client-ready output)
+
+This analysis provides structured outputs designed for downstream
+interpretation and decision-making, including:
+
+- Differential expression results with statistical confidence (log2FC,
+  FDR, CPM)
+- Ranked gene lists for biomarker prioritization
+- Functional pathway summaries highlighting key dysregulated biological
+  processes
+- Network-based identification of hub genes potentially involved in
+  regulatory control
+- Disease-free survival and overall survival analyses supporting
+  clinical relevance of candidate genes
+- Visual reports (PCA, volcano plots, heatmaps) suitable for publication
+  or presentations
+- Biological interpretation summary to support hypothesis generation
+
+------------------------------------------------------------------------
+
+# 15. Biological and translational relevance
+
+The observed transcriptional changes reflect key features of tumor
+microenvironment-driven cancer progression, including extracellular
+matrix remodeling, hypoxia adaptation, and metabolic reprogramming.
+
+These processes are consistent with features associated with increased
+tumor aggressiveness and may provide insights into early molecular
+events linked to breast cancer progression in stromal-rich environments.
+
+Rather than isolated pathway effects, the results indicate a coordinated
+tumor microenvironment-driven transcriptional program organized into
+three functional biological modules:
+
+1.  **Microenvironment remodeling module** (ECM organization, integrin
+    signaling, collagen formation)  
+2.  **Metabolic adaptation module** (HIF-1 signaling, glycolysis,
+    oxidative stress response)  
+3.  **Immune-stromal communication module** (cytokine signaling,
+    complement activation, JAK-STAT pathway)
+
+Importantly, these molecular programs are consistent with clinical
+observations from disease-free and overall survival analyses, supporting
+the prognostic relevance of key hub genes identified in this study.
+
+These findings may provide actionable insights into stromal–tumor
+interactions and could help prioritize candidate pathways for further
+experimental validation or therapeutic targeting.
+
+------------------------------------------------------------------------
+
+# 16. Potential applications
+
+This type of analysis can support:
+
+- Biomarker discovery for cancer progression studies
+- Identification of therapeutic targets in tumor microenvironment
+  interactions
+- Functional characterization of treatment-induced transcriptional
+  changes
+- Preclinical hypothesis generation for breast cancer research
+- Integration with proteomics or clinical datasets for multi-omics
+  analysis
+- Prognostic biomarker identification based on disease-free and overall
+  survival associations
